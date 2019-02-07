@@ -2,10 +2,10 @@ const puppeteer = require('puppeteer');
 
 
 (async () => {
-  const browser = await puppeteer.launch({headless:false});
+  const browser = await puppeteer.launch({headless:true,ignoreHTTPSErrors: true,args: ['--start-maximized']});
   const page = await browser.newPage();
   await page.setViewport({ width: 1680, height: 1050 })
-  await page.goto('https://kwejk.pl/',{waitUntil: 'networkidle2'});
+  await page.goto('https://jbzdy.pl/main',{waitUntil: 'networkidle2'});
   
 
 
@@ -19,7 +19,7 @@ const puppeteer = require('puppeteer');
   });
 
 
-  await page.waitFor(10000)
+  await page.waitFor(60000)
   await autoScroll(page);
   
   await page.evaluate( () => {
@@ -46,7 +46,7 @@ async function autoScroll(page){
                 window.scrollBy(0, distance);
                 totalHeight += distance;
                 if(totalHeight >= scrollHeight){
-                	window.scrollBy(0, 0);
+                	//window.scrollBy(0, 0);
                     clearInterval(timer);
                     resolve();
                 }
