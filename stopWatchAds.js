@@ -128,7 +128,7 @@ $.fn.isInViewport = function() {
   var elementBottom = elementTop + $(this).outerHeight();
   var viewportTop = $(window).scrollTop();
   var viewportBottom = viewportTop + $(window).height();
-  return elementBottom > viewportTop && elementTop < viewportBottom;
+  return elementBottom > viewportTop && elementTop < viewportBottom; // return elementBottom/2 > viewportTop && elementTop/2 < viewportBottom; <- jak ma mierzyć przy 50%
 };
 
 let data  = $('.spolecznoscinet').toArray().map( x => 
