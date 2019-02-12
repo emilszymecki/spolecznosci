@@ -6,7 +6,9 @@ const { PendingXHR } = require('pending-xhr-puppeteer');
 (async () => {
   
    const browser = await puppeteer.launch({headless:true,ignoreHTTPSErrors: true,args: ['--start-maximized']});
-
+//executablePath: 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe',
+//userDataDir: 'C:/Users/Emil/AppData/Local/Google/Chrome/User Data/Profile 4',
+  
   for(let loop in emulatedDevices){
     console.log(emulatedDevices[loop])
     const page = await browser.newPage();
