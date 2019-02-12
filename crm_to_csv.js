@@ -1,4 +1,4 @@
-var table = $('tbody').eq(2).find('tr').toArray().map( (el) => ({'link':$(el).find('td').eq(4).find('a').eq(0).attr('href'),
+var table = $('tbody').eq(2).find('tr').toArray().map( (el) => ({'link':`https://crm.spolecznosci.pl${$(el).find('td').eq(4).find('a').eq(0).attr('href')}`,
 													  'nazwa':$(el).find('td').eq(4).find('a').eq(0).text(),
 													  'start':$(el).find('td').eq(5).text(),
 													  'koniec':$(el).find('td').eq(6).text()
