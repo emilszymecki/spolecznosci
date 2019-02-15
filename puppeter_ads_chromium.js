@@ -1,6 +1,7 @@
 const puppeteer = require("puppeteer");
 const devices = require("puppeteer/DeviceDescriptors");
 const { PendingXHR } = require("pending-xhr-puppeteer");
+const fs = require('fs');
 
 (async () => {
 	const browser = await puppeteer.launch({
@@ -56,20 +57,36 @@ const { PendingXHR } = require("pending-xhr-puppeteer");
 			  const rect = await page.evaluate(selector => {
 			    const element = document.getElementById(selector);
 			   	element.scrollIntoView()
+			   	window.scrollBy(0, -65);
 			    element.getBoundingClientRect()
 			    const {x, y, width, height} = element.getBoundingClientRect();
-			    return {left: x, top: y, width, height, id: element.id};
+			     
+			     if(element.children.length){
+
+						const txt = document.createElement('p');
+					    txt.innerHTML = `${selector} size:${width}x${height}`;
+						txt.style.background = "red";
+						txt.style.position = "relative";
+						txt.style.display = "block";
+						//element.style.border='2px solid blue'
+						element.insertBefore(txt, this.firstChild);
+
+			    }
+
+			    return {left: x, top: y, width, height, id: element.id, children: element.children.length};
 			  }, selector);
-			  await page.waitFor(2000);
-			  return await page.screenshot({
-			    path: `${site}-${emulatedDevices[loop].name}-${selector}-elm.png`,
-			    /*clip: {
-			      x: 0,
-			      y: rect.top - padding,
-			      width: dimensions.width,
-			      height: dimensions.height
-			    }*/
-			  });
+			  console.log(rect)
+			  if(rect.children){
+			  	await page.waitFor(2000);
+			  	await fs.mkdir(`${__dirname}/${site}/${emulatedDevices[loop].name}`, { recursive: true }, (err) => {
+				  if (err) throw err;
+				});
+			  	return await page.screenshot({
+			  	  path: `${__dirname}/${site}/${emulatedDevices[loop].name}/${site}-${emulatedDevices[loop].name}-${selector}-elm.png`,
+			  	});
+			  }else{
+			  	await page.waitFor(500);
+			  }
 			}
 
 			for(scroller of placements){
@@ -156,4 +173,3 @@ const emulatedDevices = [
 	devices["iPhone X"],
 	devices["Galaxy S5"]
 ];
-
