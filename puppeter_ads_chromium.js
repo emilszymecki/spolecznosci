@@ -18,8 +18,9 @@ const fs = require('fs');
 			const page = await browser.newPage();
 			const pendingXHR = new PendingXHR(page);
 			//await page.setViewport({ width: 1680, height: 1050 })
+			const urls = new URL(site)
 			await page.emulate(emulatedDevices[loop]);
-			await page.goto( `https://${site}` , {
+			await page.goto( site , {
 				waitUntil: "networkidle2"
 			});
 
@@ -76,13 +77,13 @@ const fs = require('fs');
 			    return {left: x, top: y, width, height, id: element.id, children: element.children.length};
 			  }, selector);
 			  console.log(rect)
-			  if(rect.children){
+			  if(rect.children !== 0 || (rect.width !== 0 && rect.height !== 0)){
 			  	await page.waitFor(2000);
-			  	await fs.mkdir(`${__dirname}/${site}/${emulatedDevices[loop].name}`, { recursive: true }, (err) => {
+			  	await fs.mkdir(`${__dirname}/${urls.host}/${emulatedDevices[loop].name}`, { recursive: true }, (err) => {
 				  if (err) throw err;
 				});
 			  	return await page.screenshot({
-			  	  path: `${__dirname}/${site}/${emulatedDevices[loop].name}/${site}-${emulatedDevices[loop].name}-${selector}-elm.png`,
+			  	  path: `${__dirname}/${urls.host}/${emulatedDevices[loop].name}/${urls.host}-${emulatedDevices[loop].name}-${selector}-elm.png`,
 			  	});
 			  }else{
 			  	await page.waitFor(500);
@@ -97,7 +98,7 @@ const fs = require('fs');
 				}
 			}
 
-			await page.screenshot({path: `${site}-${emulatedDevices[loop].name}-all.png`,fullPage: true});
+			await page.screenshot({path: `${urls.host}-${emulatedDevices[loop].name}-all.png`,fullPage: true});
 			await page.waitFor(2000);
 			
 			console.log("Dimensions:", dimensions);
@@ -108,8 +109,8 @@ const fs = require('fs');
 })();
 
 const sites = [
-	"kwejk.pl",
-	"jbzdy.pl"
+	"https://szafa.pl/?snet={305,198814,25df0e657c21856e10367fc1457f601a,1}",
+	"https://www.astar.czest.pl/?snet={283,198779,12cd5de89830f6995179ed8294fe4117,1}",
 ];
 
 
@@ -173,3 +174,4 @@ const emulatedDevices = [
 	devices["iPhone X"],
 	devices["Galaxy S5"]
 ];
+
