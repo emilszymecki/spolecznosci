@@ -19,12 +19,32 @@
     },
     {
       "Command": "storeEval",
+      "Target": "storedVars[\"all\"].length",
+      "Value": "length"
+    },
+    {
+      "Command": "while",
+      "Target": "(${num} <= ${length})",
+      "Value": ""
+    },
+    {
+      "Command": "storeEval",
       "Target": "storedVars[\"all\"][${num}]",
       "Value": "testL"
     },
     {
       "Command": "echo",
-      "Target": "${testL}  \"OKOK\"",
+      "Target": "${testL}  ${num} \"OKOK\"",
+      "Value": ""
+    },
+    {
+      "Command": "storeEval",
+      "Target": "${num} +1",
+      "Value": "num"
+    },
+    {
+      "Command": "endWhile",
+      "Target": "",
       "Value": ""
     }
   ]
