@@ -1,0 +1,31 @@
+{
+  "Name": "xxx",
+  "CreationDate": "2019-2-19",
+  "Commands": [
+    {
+      "Command": "open",
+      "Target": "https://www.wykop.pl/",
+      "Value": ""
+    },
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "num"
+    },
+    {
+      "Command": "storeEval",
+      "Target": "Array.from(document.querySelectorAll('.article')).map(x => x.querySelector('h2').outerText.trim())",
+      "Value": "all"
+    },
+    {
+      "Command": "storeEval",
+      "Target": "storedVars[\"all\"][${num}]",
+      "Value": "testL"
+    },
+    {
+      "Command": "echo",
+      "Target": "${testL}  \"OKOK\"",
+      "Value": ""
+    }
+  ]
+}
