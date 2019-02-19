@@ -174,4 +174,3 @@ const emulatedDevices = [
 	devices["iPhone X"],
 	devices["Galaxy S5"]
 ];
-
