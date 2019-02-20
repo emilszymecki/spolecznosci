@@ -1,0 +1,81 @@
+{
+  "Name": "allRTB",
+  "CreationDate": "2019-2-20",
+  "Commands": [
+    {
+      "Command": "open",
+      "Target": "https://crm.spolecznosci.pl/campaings/show/13225",
+      "Value": ""
+    },
+    {
+      "Command": "waitForVisible",
+      "Target": "id=service_checkboxes",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "//*[@id=\"service_checkboxes\"]/label[4]",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "6000",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "//*[@id=\"check_all\"]",
+      "Value": ""
+    },
+    {
+      "Command": "clickAndWait",
+      "Target": "//*[@id=\"grid_elementy\"]/div/input[7]",
+      "Value": ""
+    },
+    {
+      "Command": "prompt",
+      "Target": "\"Podaj stronkę\"",
+      "Value": "site"
+    },
+    {
+      "Command": "storeEval",
+      "Target": "document.getElementById('services_set').value = \"${site}\"/*\"Zespolmi.pl\"*/;document.getElementById('services_set').dispatchEvent(new Event('change'));",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "1000",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "//*[@id=\"all_sections\"]",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "1000",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "//*[@id=\"all_creations\"]",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "3000",
+      "Value": ""
+    },
+    {
+      "Command": "storeEval",
+      "Target": "$('.form-group').toArray().forEach( (x,y) => {var empty = $(x).find('.select2-search-choice').children().length == 0? true: false;if(empty){$(x).find('.el-delete').click();}})",
+      "Value": ""
+    },
+    {
+      "Command": "echo",
+      "Target": "STOP",
+      "Value": ""
+    }
+  ]
+}
