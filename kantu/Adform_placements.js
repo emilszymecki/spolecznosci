@@ -28,6 +28,31 @@
       "Value": ""
     },
     {
+      "Command": "click",
+      "Target": "/html/body/div[4]/div/div[3]/div/div/div/div/div/div[4]/div[2]/di-pagination/div/div[3]/div[2]/button",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "/html/body/div[4]/div/div[3]/div/div/div/div/div/div[4]/div[2]/di-pagination/div/div[3]/div[2]/div/ol/li[3]",
+      "Value": ""
+    },
+    {
+      "Command": "label",
+      "Target": "SCRAPER",
+      "Value": ""
+    },
+    {
+      "Command": "storeEval",
+      "Target": "!$('.next').hasClass('disabled')",
+      "Value": "paginationActiv"
+    },
+    {
+      "Command": "echo",
+      "Target": "${paginationActiv}",
+      "Value": "paginationActiv"
+    },
+    {
       "Command": "storeEval",
       "Target": "$('tbody').find('tr').length",
       "Value": "tableLength"
@@ -85,6 +110,36 @@
     {
       "Command": "endWhile",
       "Target": "",
+      "Value": ""
+    },
+    {
+      "Command": "if",
+      "Target": "${paginationActiv}",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "link=Next",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "1000",
+      "Value": ""
+    },
+    {
+      "Command": "gotoLabel",
+      "Target": "SCRAPER",
+      "Value": ""
+    },
+    {
+      "Command": "else",
+      "Target": "",
+      "Value": ""
+    },
+    {
+      "Command": "endif",
+      "Target": "\"KONIEC\"",
       "Value": ""
     }
   ]
