@@ -1,0 +1,56 @@
+{
+  "Name": "RTB_next",
+  "CreationDate": "2019-2-20",
+  "Commands": [
+    {
+      "Command": "open",
+      "Target": "https://crm.spolecznosci.pl/campaings/show/13225",
+      "Value": ""
+    },
+    {
+      "Command": "prompt",
+      "Target": "\"Podaja nazwę serwisu\"",
+      "Value": "name"
+    },
+    {
+      "Command": "waitForVisible",
+      "Target": "id=service_checkboxes",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "//*[@id=\"service_checkboxes\"]//label/span[contains(text(), '${name}')]",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "2000",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=search_item",
+      "Value": ""
+    },
+    {
+      "Command": "select",
+      "Target": "id=states_search",
+      "Value": "label=uruchomiona"
+    },
+    {
+      "Command": "pause",
+      "Target": "3000",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "//*[@id=\"check_all\"]",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "0",
+      "Value": ""
+    }
+  ]
+}
