@@ -14,7 +14,7 @@
     },
     {
       "Command": "click",
-      "Target": "//*[@id=\"service_checkboxes\"]/label[4]",
+      "Target": "//*[@id=\"service_checkboxes\"]/label/span[contains(text(), 'AAAAtemplate')]",
       "Value": ""
     },
     {
