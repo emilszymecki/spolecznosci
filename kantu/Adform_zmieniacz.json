@@ -1,0 +1,91 @@
+{
+  "Name": "Adform zmieniacz",
+  "CreationDate": "2019-2-20",
+  "Commands": [
+    {
+      "Command": "store",
+      "Target": "180",
+      "Value": "!timeout_macro"
+    },
+    {
+      "Command": "store",
+      "Target": "medium",
+      "Value": "!replayspeed"
+    },
+    {
+      "Command": "comment",
+      "Target": "The file ReadCSVTestData.csv is pre-installed with Kantu.",
+      "Value": ""
+    },
+    {
+      "Command": "csvRead",
+      "Target": "kwejk.csv",
+      "Value": ""
+    },
+    {
+      "Command": "echo",
+      "Target": "Status = ${!csvReadStatus}, line = ${!csvReadLineNumber}",
+      "Value": ""
+    },
+    {
+      "Command": "while",
+      "Target": "\"${!csvReadStatus}\" == \"OK\"",
+      "Value": ""
+    },
+    {
+      "Command": "echo",
+      "Target": "status = ${!csvReadStatus}, line = ${!csvReadLineNumber}",
+      "Value": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://www.adform.com/DirectIntegrationsUI/#/placement/${!COL2}",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "1500",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=Name",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=Name",
+      "Value": "${!COL3}"
+    },
+    {
+      "Command": "storeEval",
+      "Target": "${!csvReadLineNumber}+1",
+      "Value": "!csvReadLineNumber"
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!errorIgnore"
+    },
+    {
+      "Command": "echo",
+      "Target": "Reading CSV line No.  ${!csvReadLineNumber} ",
+      "Value": "!errorIgnore"
+    },
+    {
+      "Command": "csvRead",
+      "Target": "kwejk.csv",
+      "Value": ""
+    },
+    {
+      "Command": "store",
+      "Target": "false",
+      "Value": "!errorIgnore"
+    },
+    {
+      "Command": "endWhile",
+      "Target": "",
+      "Value": ""
+    }
+  ]
+}
