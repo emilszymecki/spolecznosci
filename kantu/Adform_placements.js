@@ -54,13 +54,33 @@
     },
     {
       "Command": "echo",
-      "Target": "${tableIterator} ${tableRowId} ${tableRowName}",
+      "Target": "${tableIterator}/${tableLength} ${tableRowId} ${tableRowName}",
       "Value": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${tableIterator}",
+      "Value": "!csvLine"
+    },
+    {
+      "Command": "store",
+      "Target": "${tableRowId}",
+      "Value": "!csvLine"
+    },
+    {
+      "Command": "store",
+      "Target": "${tableRowName}",
+      "Value": "!csvLine"
     },
     {
       "Command": "storeEval",
       "Target": "${tableIterator} +1",
       "Value": "tableIterator"
+    },
+    {
+      "Command": "csvSave",
+      "Target": "testcsv",
+      "Value": ""
     },
     {
       "Command": "endWhile",
