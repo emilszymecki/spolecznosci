@@ -103,7 +103,7 @@ const fs = require('fs');
       						x: 0,
       						y: 0,
       						width: dimensions.width,
-      						height: rect.offsetTop + rect.height + Math.round( 10 * rect.height / 100)
+      						height: (rect.offsetTop + rect.height + Math.round( 10 * rect.height / 100) < dimensions.height)? dimensions.height : (rect.offsetTop + rect.height + Math.round( 10 * rect.height / 100))
     					},
 			  	});
 			  }else{
