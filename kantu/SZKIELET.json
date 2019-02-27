@@ -1,0 +1,156 @@
+{
+  "Name": "test2",
+  "CreationDate": "2019-2-27",
+  "Commands": [
+    {
+      "Command": "store",
+      "Target": "180",
+      "Value": "!timeout_macro"
+    },
+    {
+      "Command": "store",
+      "Target": "medium",
+      "Value": "!replayspeed"
+    },
+    {
+      "Command": "storeEval",
+      "Target": "new Array()",
+      "Value": "ALL"
+    },
+    {
+      "Command": "csvRead",
+      "Target": "testcsv.csv",
+      "Value": ""
+    },
+    {
+      "Command": "echo",
+      "Target": "Status = ${!csvReadStatus}, line = ${!csvReadLineNumber} arr = ",
+      "Value": ""
+    },
+    {
+      "Command": "while",
+      "Target": "\"${!csvReadStatus}\" == \"OK\"",
+      "Value": ""
+    },
+    {
+      "Command": "echo",
+      "Target": "status = ${!csvReadStatus}, line = ${!csvReadLineNumber}",
+      "Value": ""
+    },
+    {
+      "Command": "storeEval",
+      "Target": "storedVars['ALL'].concat([[storedVars['!COL1'],storedVars['!COL2'],storedVars['!COL3']]])",
+      "Value": "ALL"
+    },
+    {
+      "Command": "storeEval",
+      "Target": "${!csvReadLineNumber}+1",
+      "Value": "!csvReadLineNumber"
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!errorIgnore"
+    },
+    {
+      "Command": "echo",
+      "Target": "Reading CSV line No.  ${!csvReadLineNumber} ",
+      "Value": "!errorIgnore"
+    },
+    {
+      "Command": "csvRead",
+      "Target": "testcsv.csv",
+      "Value": ""
+    },
+    {
+      "Command": "store",
+      "Target": "false",
+      "Value": "!errorIgnore"
+    },
+    {
+      "Command": "endWhile",
+      "Target": "",
+      "Value": ""
+    },
+    {
+      "Command": "storeEval",
+      "Target": "storedVars['ALL'].reduce((agg,x)=>{var colOne=x[0],colTwo=x[1],colThree=x[2];var tst=agg.filter(el=>el.indexOf(colOne)>-1).length;if(tst==0){agg.push([colOne])}var index=agg.reduce((agg,el,i,arr)=>{if(el.indexOf(colOne)!==-1){agg=arr.indexOf(el)}return agg},-1);agg[index].push([colTwo,colThree]);return agg},[])",
+      "Value": "MAINARR"
+    },
+    {
+      "Command": "store",
+      "Target": "0",
+      "Value": "COUNTER"
+    },
+    {
+      "Command": "storeEval",
+      "Target": "storedVars['MAINARR'].length",
+      "Value": "MAINARRLEN"
+    },
+    {
+      "Command": "while",
+      "Target": "${COUNTER} < ${MAINARRLEN}",
+      "Value": ""
+    },
+    {
+      "Command": "store",
+      "Target": "0",
+      "Value": "INNERCOUNTER"
+    },
+    {
+      "Command": "storeEval",
+      "Target": "storedVars['MAINARR'][${COUNTER}]",
+      "Value": "MAINARREL"
+    },
+    {
+      "Command": "storeEval",
+      "Target": "storedVars['MAINARREL'].slice(0,1)",
+      "Value": "GROUP"
+    },
+    {
+      "Command": "storeEval",
+      "Target": "storedVars['MAINARREL'].slice(1)",
+      "Value": "ELEMENTS"
+    },
+    {
+      "Command": "label",
+      "Target": "READER",
+      "Value": ""
+    },
+    {
+      "Command": "storeEval",
+      "Target": "storedVars['ELEMENTS'][${INNERCOUNTER}]",
+      "Value": "ELEMENT"
+    },
+    {
+      "Command": "echo",
+      "Target": "${GROUP} ${ELEMENT}",
+      "Value": ""
+    },
+    {
+      "Command": "storeEval",
+      "Target": "${INNERCOUNTER} + 1",
+      "Value": "INNERCOUNTER"
+    },
+    {
+      "Command": "storeEval",
+      "Target": "storedVars['ELEMENTS'][${INNERCOUNTER}]",
+      "Value": "ELEMENT"
+    },
+    {
+      "Command": "gotoIf",
+      "Target": "\"${ELEMENT}\" != \"undefined\"",
+      "Value": "READER"
+    },
+    {
+      "Command": "storeEval",
+      "Target": "${COUNTER} + 1",
+      "Value": "COUNTER"
+    },
+    {
+      "Command": "endWhile",
+      "Target": "",
+      "Value": ""
+    }
+  ]
+}
