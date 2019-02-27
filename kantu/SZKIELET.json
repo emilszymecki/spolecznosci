@@ -4,12 +4,12 @@
   "Commands": [
     {
       "Command": "store",
-      "Target": "180",
+      "Target": "1000",
       "Value": "!timeout_macro"
     },
     {
       "Command": "store",
-      "Target": "medium",
+      "Target": "FAST",
       "Value": "!replayspeed"
     },
     {
@@ -19,7 +19,7 @@
     },
     {
       "Command": "csvRead",
-      "Target": "testcsv.csv",
+      "Target": "szymanek.csv",
       "Value": ""
     },
     {
@@ -39,7 +39,7 @@
     },
     {
       "Command": "storeEval",
-      "Target": "storedVars['ALL'].concat([[storedVars['!COL1'],storedVars['!COL2'],storedVars['!COL3']]])",
+      "Target": "storedVars['ALL'].concat([[storedVars['!COL3'],storedVars['!COL1'],storedVars['!COL2']]])",
       "Value": "ALL"
     },
     {
@@ -59,7 +59,7 @@
     },
     {
       "Command": "csvRead",
-      "Target": "testcsv.csv",
+      "Target": "szymanek.csv",
       "Value": ""
     },
     {
