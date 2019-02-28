@@ -1,0 +1,51 @@
+{
+  "Name": "clikonometrics",
+  "CreationDate": "2019-2-28",
+  "Commands": [
+    {
+      "Command": "open",
+      "Target": "https://headerbidding.clickonometrics.pl/tools_services/placements/view/7787",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "1000",
+      "Value": ""
+    },
+    {
+      "Command": "storeEval",
+      "Target": "$(\".table\").find(\"tbody\").find(\"tr:not(\\\".black\\\")\").toArray().map(a=>{const b=$(a).find(\"td\").eq(0).text(),c=$(a).find(\"td\").eq(1).text(),[d,e]=c.split(\"_\");return[b,c]});",
+      "Value": "TEST"
+    },
+    {
+      "Command": "open",
+      "Target": "https://crm.spolecznosci.pl/tritable/campaigns/management?filter_services=721&filter_sections=&filter_ssp=26",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "1000",
+      "Value": ""
+    },
+    {
+      "Command": "storeEval",
+      "Target": "var  clikonometrics = storedVars['TEST']",
+      "Value": ""
+    },
+    {
+      "Command": "storeEval",
+      "Target": "var resolutionToAd={'160x600':[\"Skyscraper\"],'300x250':[\"Interstitial\",\"Rectangle\"],'300x600':[\"Halfpage\"],'320x100':[\"Banner\",\"BannerMobile\"],'750x200':[\"Billboard\",\"DoubleBillboard\",\"Leaderboard\",\"Screening\",\"TripleBillboard\",\"Wideboard\"],}",
+      "Value": ""
+    },
+    {
+      "Command": "storeEval",
+      "Target": "var AdsForms={banner:\"Banner\",bannermob:\"BannerMobile\",billboard:\"Billboard\",dbb:\"DoubleBillboard\",doubebil:\"DoubleBillboard\",doublebi:\"DoubleBillboard\",doublebl:\"DoubleBillboard\",doubleil:\"DoubleBillboard\",dublebil:\"DoubleBillboard\",halfpage:\"Halfpage\",inters:\"Interstitial\",leaderboard:\"Leaderboard\",outstream:\"Outstream\",rect:\"Rectangle\",screen:\"Screening\",sky:\"Skyscraper\",sticky:\"Sticky\",triplelboard:\"TripleBillboard\",wideboard:\"Wideboard\",prerol:\"Preroll\"}",
+      "Value": ""
+    },
+    {
+      "Command": "storeEval",
+      "Target": "$('table').find('tbody').find('.section_name').toArray().forEach(el=>{var patt=new RegExp(/\\d+/g);var grabNum=(txt,pattern)=>pattern.exec(txt);var txt=$(el).text().trim().toLowerCase();var executorAll=grabNum(txt,patt);var keys=Object.keys(AdsForms);var ResolutionKeys=Object.keys(resolutionToAd);var spl=txt.split(\"_\");var placement=spl.reduce((arr,x)=>{var executor=grabNum(x,patt);var num=executor===null?(executorAll===null?\"1\":executorAll):executor;var tst=keys.filter(y=>{return x.indexOf(y)!==-1}).map(x=>[AdsForms[x],num[0]]);return arr.concat(tst)},[]).sort((a,b)=>b[0].length-a[0].length)[0]||[\"ERROR\"];var resolution=ResolutionKeys.filter(x=>{var arr=resolutionToAd[x];return arr.includes(placement[0])});var getId=clikonometrics.filter(x=>x[1].includes(resolution+\"_\"+placement[1])).flatMap(x=>x);$(el).text($(el).text()+\" \"+ getId[0] +\" \"+ getId[1])})",
+      "Value": ""
+    }
+  ]
+}
