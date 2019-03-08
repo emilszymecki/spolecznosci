@@ -1,0 +1,226 @@
+{
+  "Name": "test_editor_sarigato",
+  "CreationDate": "2019-3-8",
+  "Commands": [
+    {
+      "Command": "open",
+      "Target": "https://crm.spolecznosci.pl/campaings/show/13977",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "4000",
+      "Value": ""
+    },
+    {
+      "Command": "storeEval",
+      "Target": "$('#adsGrid').find('tbody').find('tr').length",
+      "Value": "rows"
+    },
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "counter"
+    },
+    {
+      "Command": "while",
+      "Target": "(${counter} <= ${rows})",
+      "Value": ""
+    },
+    {
+      "Command": "echo",
+      "Target": "count = ${counter}",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "//*[@id=\"adsGrid\"]/tbody/tr[${counter}]/td[5]/div/a",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "3000",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "//*[@id=\"content\"]/input[2]",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "8000",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "//*[@id=\"content\"]/div[5]/center/button",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "500",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "//*[@id=\"creations\"]/div/div[1]/span[3]/input",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "500",
+      "Value": ""
+    },
+    {
+      "Command": "storeEval",
+      "Target": "document.querySelector('#fs_niestandardowe_informacje > div:nth-child(3)').style.background = \"red\"",
+      "Value": ""
+    },
+    {
+      "Command": "storeEval",
+      "Target": "document.querySelector('#fs_niestandardowe_informacje > div:nth-child(3) > div.CodeMirror.cm-s-default.CodeMirror-wrap > div.CodeMirror-scroll > div.CodeMirror-sizer > div > div > div > div.CodeMirror-code').scrollIntoView()",
+      "Value": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "dbQQfp_dpi_96.png",
+      "Value": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${KEY_CTRL+KEY_A}",
+      "Value": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${KEY_CTRL+KEY_C}",
+      "Value": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "0GqxOy_dpi_96.png",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "1000",
+      "Value": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${KEY_CTRL+KEY_N}",
+      "Value": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${KEY_CTRL+KEY_V}",
+      "Value": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${KEY_CTRL+KEY_H}",
+      "Value": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "[PASTE_YOUR_TRACKING_PIXEL_HERE]",
+      "Value": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${KEY_TAB}",
+      "Value": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "[countgo]https://c.spolecznosci.net/f.spolecznosci.net/2015/07/1634.gif",
+      "Value": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${KEY_CTRL+KEY_ALT+KEY_ENTER}",
+      "Value": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${KEY_CTRL+KEY_A}",
+      "Value": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${KEY_CTRL+KEY_C}",
+      "Value": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${KEY_ALT+KEY_F4}",
+      "Value": ""
+    },
+    {
+      "Command": "storeEval",
+      "Target": "${counter} + 1",
+      "Value": "counter"
+    },
+    {
+      "Command": "storeEval",
+      "Target": "$('.form_creation_column').eq(2).css('background-color','yellow')",
+      "Value": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "ENlUS7_dpi_96.png",
+      "Value": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${KEY_CTRL+KEY_A}",
+      "Value": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "PODMIANA!!!",
+      "Value": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${KEY_CTRL+KEY_A}",
+      "Value": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${KEY_CTRL+KEY_V}",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "500",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "//*[@id=\"submit_buttons\"]/input[3]",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "4000",
+      "Value": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://crm.spolecznosci.pl/campaings/show/13977",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "4000",
+      "Value": ""
+    },
+    {
+      "Command": "endWhile",
+      "Target": "",
+      "Value": ""
+    }
+  ]
+}
