@@ -1,6 +1,20 @@
+var fadeIn = function (el) {
+    el.style.opacity = 0;
+    var i = 0;
+    var tick = function () {
+        i += 0.03;
+        el.style.opacity = i;
+        if (el.style.opacity < 1) setTimeout(tick, 3000/25);
+        else el.style.opacity = 1;
+    };
+    tick();
+};
+
 var observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-	$(entry.target).hide().fadeIn(6000)
+	//$(entry.target).hide().fadeIn(6000)
+	fadeIn(entry.target)
+	//loa.fadeIn(entry.target[0], 500, 'block', function() { console.log('done'); });
   	var id = entry.target.id
   	var idnbr = parseInt(id.split("-")[1])
     if (entry.intersectionRatio > 0) {
@@ -12,7 +26,7 @@ var observer = new IntersectionObserver(entries => {
     }
   });
 },{
-    rootMargin: '100px 0px'
+    rootMargin: '50px 0px'
 });
 
 
