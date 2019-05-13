@@ -28,3 +28,5 @@ names(newDupa)[6] <- "Ad Unit Name(Spaces not Allowed) List out the ad-unit name
 
 newData <- newDupa %>% select(6,2,3,7,8,9,4,1,5)
 newData$Remarks <- tolower(newData$Remarks)
+
+write.csv(newData, file = "floor.csv",row.names=FALSE, na="")
