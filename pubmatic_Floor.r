@@ -13,7 +13,7 @@ splitterResplution<-function(x){
 }
 
 
-newDupa$XYZzz <- lapply(newDupa[,1], splitterName)
+newDupa$Names <- lapply(newDupa[,1], splitterName)
 newDupa$Size <- lapply(newDupa[,1], splitterResplution)
 newDupa[paste("Floor within PubMatic")] <- 0
 newDupa[paste("Zone ID (Optional - for setting up PMP deals on DM Inventory)")] <- ""
@@ -28,5 +28,7 @@ names(newDupa)[6] <- "Ad Unit Name(Spaces not Allowed) List out the ad-unit name
 
 newData <- newDupa %>% select(6,2,3,7,8,9,4,1,5)
 newData$Remarks <- tolower(newData$Remarks)
+
+newData <- data.frame(lapply(newData, as.character), stringsAsFactors=FALSE)
 
 write.csv(newData, file = "floor.csv",row.names=FALSE, na="")
