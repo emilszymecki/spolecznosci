@@ -5,7 +5,7 @@ namesSite <- c("Site ID (Should be blank for New Sites)","Site/App Domain","Site
 namesPlacement <- c('Ad Tag ID','Ad Tag Name','Site/App Identifier','Format Type','Response Code','Ad Size','Ad Placement','Fold Placement','Expansion Direction','User Data Parameters (Semicolon Separated List of key=value)','Protocol (VAST 2.0/VAST 3.0)(Applicable in case of Video)','VPAID Support (Applicable in case of Video)','Time Range Min (Applicable in case of Video)','Time Range Max (Applicable in case of Video)','MIME Type (Semicolon Separated List)(Applicable in case of Video)','Default Player Size (WidthxHeight for static size/Dynamic or blank for dynamic size)(Applicable in case of Video)','Companion Ad (Y/N) (Applicable in case of Video)','Linear Ad (Any/Linear/Non-Linear)(Applicable in case of Video)','Positioning (Pre-roll/In-roll/Post-roll)(Applicable in case of Video)','Delete Ad Tag (Y/N)')
 #colnames(df) <- namesSite
 
-createHTTP <- function(str){glue('https://{gsub("m.","",tolower(str))}')}
+createHTTP <- function(str){glue('https://{gsub("^m.","",tolower(str))}')}
 createHTTP_Prebid_WEB <- function(str){glue('{createHTTP(str)}/Prebid')}
 createHTTP_Prebid_MOBILE <- function(str){glue('{tolower(str)}/Prebid')}
 
