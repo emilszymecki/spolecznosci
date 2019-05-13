@@ -1,24 +1,24 @@
 names(sites)[3] <- "Site"
 dupa <- merge(tags,sites,by.x = "Site")
-newDupa <- dupa %>% select("Ad.Tag.Name","SiteId","Ad.Tag.ID","Primary Category","Site")
+newDupa <- dupa %>% select("Ad Tag Name","SiteId","Ad Tag ID","Primary Category","Site")
 
 splitterName<-function(x){
-    str <- unlist(strsplit(as.character(x),"_"))
-    return(str_c(str[1:length(str) - 1],sep="",collapse = "_"))
+  str <- unlist(strsplit(as.character(x),"_"))
+  return(str_c(str[1:length(str) - 1],sep="",collapse = "_"))
 }
 
 splitterResplution<-function(x){
-    str <- unlist(strsplit(as.character(x),"_"))
-    return(str[length(str)])
+  str <- unlist(strsplit(as.character(x),"_"))
+  return(str[length(str)])
 }
 
 
-newDupa$Ad.Tag.Name_new <- lapply(newDupa$Ad.Tag.Name, splitterName)
-newDupa$Size <- lapply(newDupa$Ad.Tag.Name, splitterResplution)
+newDupa$XYZzz <- lapply(newDupa[,1], splitterName)
+newDupa$Size <- lapply(newDupa[,1], splitterResplution)
 newDupa[paste("Floor within PubMatic")] <- 0
 newDupa[paste("Zone ID (Optional - for setting up PMP deals on DM Inventory)")] <- ""
 
-names(newDupa)[1] <- "names(newDupa)[3] <- "PubMatic Ad Tag""
+names(newDupa)[1] <- "PubMatic Tag Name"
 names(newDupa)[2] <- "PubMatic site"
 names(newDupa)[3] <- "PubMatic Ad Tag"
 names(newDupa)[4] <- "Remarks"
