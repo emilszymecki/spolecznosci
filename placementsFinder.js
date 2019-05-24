@@ -48,6 +48,8 @@ var spolecznoscinet = [...document.querySelectorAll(".spolecznoscinet")].reduce(
 	{}
 );
 
+removeElements( document.querySelectorAll(".sspLabel") );
+
 Object.keys(spolecznoscinet).forEach(el => {
 	var obj = spolecznoscinet[el];
 	var el = obj.el;
