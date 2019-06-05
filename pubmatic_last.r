@@ -12,7 +12,7 @@ colnames(placementTypes) <- namesPlacementType
 
 
 createHTTP <- function(str){return (glue('https://{gsub("^m.","",tolower(str))}'))}
-createDomain <- function(str){return (glue('{gsub("^m.","",tolower(str))}'))}
+createDomain <- function(str){return (glue('{gsub("^m/.","",tolower(str))}'))}
 createHTTP_Prebid_WEB <- function(str){return (glue('{createHTTP(str)}/Prebid')) }
 createHTTP_Prebid_MOBILE <- function(str){return (glue('{tolower(str)}/Prebid')) }
 
