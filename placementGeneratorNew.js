@@ -53,4 +53,4 @@ var run = () =>{
 	`)
 }
 
-# Odpalasz run() <- w consoli
+// Odpalasz run() <- w consoli
