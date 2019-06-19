@@ -52,3 +52,5 @@ var run = () =>{
 	${end}
 	`)
 }
+
+# Odpalasz run() <- w consoli
