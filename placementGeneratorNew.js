@@ -30,7 +30,7 @@ var head = `<!-- kod w HEAD strony -->
 </script>`
 var placements = runner().reduce((agg,x) => agg+fnWriterSolo(x),"")
 var setFast = runner().map(x => x.name.split("_")[0]).map(x => {
-	 var lang = x.match(/\.[a-z]{2,}/g).slice(-1)
+	 var lang = "."+x.split(/\./g).slice(-1)
 	 return x.replace(lang,"")
 }).filter((x,i,arr) => arr.indexOf(x) == i).map(x => ['setFastPAID', 'sad'+x] )
 var end = `<!-- kod przed zamknięciem BODY -->
