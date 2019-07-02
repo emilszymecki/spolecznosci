@@ -32,16 +32,16 @@ var placements = runner().reduce((agg,x) => agg+fnWriterSolo(x),"")
 var setFast = runner().map(x => x.name.split("_")[0]).map(x => {
 	 var lang = "."+x.split(/\./g).slice(-1)
 	 return x.replace(lang,"")
-}).filter((x,i,arr) => arr.indexOf(x) == i).map(x => ['setFastPAID', 'sad'+x] )
+}).filter((x,i,arr) => arr.indexOf(x) == i).map(x => 'sad'+x )
 var end = `<!-- kod przed zamknięciem BODY -->
 <script type="text/javascript">
 var spwidth = window.innerWidth || document.documentElement.clientWidth  || document.body.clientWidth;
 var _qasp = _qasp || [];
     _qasp.push('go');
     if(spwidth < 750) {
-        _qasp.push([${setFast.filter(x => new RegExp(/m\./).test(x[1]))}]);
+        _qasp.push(['setFastPAID','${setFast.filter(x => new RegExp(/m\./).test(x))}']);
     } else {
-        _qasp.push([${setFast.filter(x => !new RegExp(/m\./).test(x[1]))}]);
+        _qasp.push(['setFastPAID','${setFast.filter(x => !new RegExp(/m\./).test(x))}']);
     }
 </script>`
 
