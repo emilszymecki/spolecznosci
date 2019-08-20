@@ -5,6 +5,11 @@ var fnWriterSolo = ({id,name,type}) => {
     var spwidth = window.innerWidth || document.documentElement.clientWidth  || document.body.clientWidth;
     if(spwidth ${type == "Desktop"? ">":"<" } 750) {
         document.write('<div class="spolecznoscinet" id="spolecznosci-${id}"></div>');
+		<div class="extra-code">
+        <!- 
+            TU UMIEŚĆ KOD ZWROTNY
+        -->
+        </div>
     }
 	</script>
 	`)
@@ -53,4 +58,4 @@ var run = () =>{
 	`)
 }
 
-// Odpalasz run() <- w consoli
+//Odpalasz run();
