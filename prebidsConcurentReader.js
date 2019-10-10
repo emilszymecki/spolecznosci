@@ -19,6 +19,7 @@ function getKeys() {
 function getInfoPrebid([key, prebid] = arr) {
   return {
     [key]: {
+	  allSSP:new Set(prebid.adUnits.flatMap(x => x.bids.flatMap(y => y.bidder))),
       adsUnitLength: prebid.que.length,
       allBidsPlacement: Object.values(prebid.getBidResponses())
         .flatMap(x => x.bids)
