@@ -12,6 +12,8 @@ function searchPartner() {
 		.filter(x => window[x].hasOwnProperty("requestBids"));
 	var gKeysResseler = {
 		spolecznosci: ["ca-pub-2365165112249593"],
+		mediafarm:["ca-pub-3653916656187385"],
+		zpr:["ca-pub-9287803764714515"],
 		yeldbird: [
 			"ca-pub-0206338760093719",
 			"ca-pub-7756348393895452",
@@ -59,8 +61,10 @@ function searchPartner() {
 		adv_media: ["advmedia", "epbjs"],
 		way2grow: ["wtg-ads", "waytogrow", "w2g"],
 		adkontekst: ["adkontekst"],
+		zpr:["pollster","idmnet"],
 		Adform: ["adform", "_adform"],
-		Smart: ["smartad", "sas_"]
+		Smart: ["smartad", "sas_"],
+		Adocean: ["adocean","aomini"],
 	};
 	var partnerChecker = dict =>
 		dict.flatMap(x =>
@@ -99,9 +103,11 @@ function searchPartner() {
 		adv_media: partnerChecker(adDict.adv_media),
 		way2grow: partnerChecker(adDict.way2grow),
 		adkontekst: partnerChecker(adDict.adkontekst),
+		zpr: partnerChecker(adDict.zpr),
 		SSP: {
 			Adform: partnerChecker(adDict.Adform),
-			Smart: partnerChecker(adDict.Smart)
+			Adocean: partnerChecker(adDict.Adocean),
+			Smart: partnerChecker(adDict.Smart),
 		}
 	};
 }
@@ -119,6 +125,7 @@ console.table(
 		adv_media,
 		way2grow,
 		adkontekst,
+		zpr,
 		gTag,
 		prebid
 	}) => ({
@@ -131,6 +138,7 @@ console.table(
 		adv_media,
 		way2grow,
 		adkontekst,
+		zpr,
 		gTag,
 		...prebid
 	}))(searchPartner())
