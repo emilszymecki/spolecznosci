@@ -25,10 +25,10 @@ function callback(entries, observer) {
         if(entry.intersectionRatio == 0 && controlObj[entry.target.id].isAbove){
             controlObj[entry.target.id].unmount = true;
         }
-        if( entry.isIntersecting && entry.intersectionRatio > 0.5 && controlObj[entry.target.id].isAbove){
+        if( entry.isIntersecting && entry.intersectionRatio > 0.3 && controlObj[entry.target.id].isAbove){
             console.log(entry.isIntersecting,entry.intersectionRatio.toFixed(2) * 100,controlObj[entry.target.id].isAbove)
             changeOverflow()
-            setTimeout(changeOverflow, (entry.intersectionRatio.toFixed(2) * 100)*1.5)
+            setTimeout(changeOverflow, (entry.intersectionRatio.toFixed(2) * 100)*2)
         }
         console.log(entry,controlObj[entry.target.id],entry.boundingClientRect.y)
     });
