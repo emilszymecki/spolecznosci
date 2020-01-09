@@ -8,6 +8,10 @@ var changeOverflow = () => {
 	}
 }
 
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 var controlObj = {}
 
 function callback(entries, observer) {
@@ -27,12 +31,12 @@ function callback(entries, observer) {
         }
         if( entry.isIntersecting && entry.intersectionRatio > 0.3 && controlObj[entry.target.id].isAbove){
             console.log(entry.isIntersecting,entry.intersectionRatio.toFixed(2) * 100,controlObj[entry.target.id].isAbove)
-            changeOverflow()
-            setTimeout(changeOverflow, (entry.intersectionRatio.toFixed(2) * 100)*2)
+            changeOverflow();
+            delay(entry.intersectionRatio.toFixed(2) * 100).then(changeOverflow)
         }
         console.log(entry,controlObj[entry.target.id],entry.boundingClientRect.y)
     });
 }
-var intersectionObserver = new IntersectionObserver(callback,{threshold:[...Array.from(new Array(1000), (x,i) => i/1000),1],rootMargin: '-60px 0px 0px 0px'});
+var intersectionObserver = new IntersectionObserver(callback,{threshold:[...Array.from(new Array(100), (x,i) => i/100),1],rootMargin: '-60px 0px 0px 0px'});
 
 document.querySelectorAll("div[id^='spolecznosci']").forEach(x => intersectionObserver.observe(x))
