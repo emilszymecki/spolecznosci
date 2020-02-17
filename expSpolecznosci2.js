@@ -1,7 +1,11 @@
-var coreCreate = (elGen,domain) => {
+var createIframe = () => {
+    console.log("Run");
+    var createIframe = window.createIframe;
+    var coreCreate = (elGen,domain) => {
     var createEl = document.createElement('iframe');
     var createScriptInit = document.createElement('script');
     createScriptInit.innerHTML = `
+         var createIframe = ${createIframe};
          var _qasp = _qasp || [];
          var initAds = (d, x, a)  => {
             var z = d.createElement(x);
@@ -18,13 +22,12 @@ var coreCreate = (elGen,domain) => {
     document.body.appendChild(createEl);  
    	createEl.contentDocument.write(elGen)
     createEl.contentDocument.body.appendChild(createScriptInit);
-};
+    };
 
-var createIframe = () => {
-    console.log("Run")
     var domain = window.location.hostname.replace("www.","").split(".").slice(0,-1).join("").split("").map((x,i) => i==0?x.toUpperCase():x).join("");
     [...document.querySelectorAll('div[class="spolecznoscinet"]')].forEach(x => {
-    	 coreCreate(`<div class="spolecznoscinet" id=${x.id}></div>`,domain)
+         console.log(x);
+    	 coreCreate(`<div class="spolecznoscinet" id=${x.id}></div>`,domain);
 	});
    
 }
