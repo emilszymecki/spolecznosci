@@ -1,8 +1,20 @@
 var createIframe = () => {
     console.log("Run");
     var createIframe = window.createIframe;
-    var coreCreate = (elGen,domain,int) => {
+    var coreCreate = (el,domain,int) => {
+    console.log(el,domain,int);
+    var elGen = `<div class="spolecznoscinet" id=${el.id}></div>`;
     var createEl = document.createElement('iframe');
+    //createEl.scrolling="no" marginheight="0" marginwidth="0" width="970" height="250" style="overflow: hidden; border: none;" id="sas_1582023859001rnd"></iframe>
+    createEl.onload = setInterval(() => {
+        createEl.setAttribute("height",createEl.contentDocument.documentElement.scrollHeight);
+        createEl.setAttribute("width",createEl.contentDocument.documentElement.scrollWidth);
+    },500);
+    createEl.setAttribute("scrolling", "no");
+    createEl.setAttribute("marginheight", "0");
+    createEl.setAttribute("marginwidth", "0");
+    createEl.style["overflow"] = "hidden";
+    createEl.style["border"] = "none";
     var createScriptInit = document.createElement('script');
     createScriptInit.innerHTML = `
          var createIframe = ${createIframe};
@@ -20,7 +32,7 @@ var createIframe = () => {
         setInterval(() => {
             console.log("check");
             [...document.querySelectorAll('div[class="spolecznoscinet"]')].forEach(x => {
-                if(x.innerHTML.length < 100){
+                if(x.innerHTML.length < 400){
                      window["_qasp"] = [];
                     _qasp.push('go');
                     _qasp.push(['setFastPAID', 'sadConamiescie']);
@@ -31,7 +43,9 @@ var createIframe = () => {
     `;
     createEl.src = 'about:blank';
     createEl.id = int;
-    document.body.appendChild(createEl);  
+    el.innerHTML = "";
+    el.style[" overflow"] = "hidden";
+    el.appendChild(createEl);  
    	createEl.contentDocument.write(elGen)
     createEl.contentDocument.body.appendChild(createScriptInit);
     };
@@ -39,7 +53,7 @@ var createIframe = () => {
     var domain = window.location.hostname.replace("www.","").split(".").slice(0,-1).join("").split("").map((x,i) => i==0?x.toUpperCase():x).join("");
     [...document.querySelectorAll('div[class="spolecznoscinet"]')].forEach((x,i) => {
          console.log(x);
-    	 coreCreate(`<div class="spolecznoscinet" id=${x.id}></div>`,domain,"el"+i);
+    	 coreCreate(x,domain,"el"+i);
 	});
    
 }
