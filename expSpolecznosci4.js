@@ -32,7 +32,7 @@ var createIframe = () => {
         setInterval(() => {
             console.log("check");
             [...document.querySelectorAll('div[class="spolecznoscinet"]')].forEach(x => {
-                if(x.innerHTML.length < 300 || x.innerHTML.includes("2386558369721555") || x.innerHTML.includes("2365165112249593") || x.innerHTML.includes("media.net")){
+                if(x.innerHTML.length < 300 || x.innerHTML.includes("2386558369721555") || x.innerHTML.includes("2365165112249593") || x.innerHTML.includes("134168336")){
                      window["_qasp"] = [];
                     _qasp.push('go');
                     _qasp.push(['setFastPAID', 'sad${domain}']);
