@@ -32,10 +32,10 @@ var createIframe = () => {
         setInterval(() => {
             console.log("check");
             [...document.querySelectorAll('div[class="spolecznoscinet"]')].forEach(x => {
-                if(x.innerHTML.length < 100 || x.innerHTML.includes("google_ads_frame")){
+                if(x.innerHTML.length < 300 || x.innerHTML.includes("2386558369721555") || x.innerHTML.includes("2365165112249593") || x.innerHTML.includes("media.net")){
                      window["_qasp"] = [];
                     _qasp.push('go');
-                    _qasp.push(['setFastPAID', 'sadConamiescie']);
+                    _qasp.push(['setFastPAID', 'sad${domain}']);
                     initAds(document, 'script', '//s.spolecznosci.net/js/core2-min.js');
                 }
             })
