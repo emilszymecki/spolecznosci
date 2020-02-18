@@ -32,7 +32,7 @@ var createIframe = () => {
         setInterval(() => {
             console.log("check");
             [...document.querySelectorAll('div[class="spolecznoscinet"]')].forEach(x => {
-                if(x.innerHTML.length < 400){
+                if(x.innerHTML.length < 100 || x.innerHTML.includes("google_ads_frame")){
                      window["_qasp"] = [];
                     _qasp.push('go');
                     _qasp.push(['setFastPAID', 'sadConamiescie']);
@@ -45,8 +45,8 @@ var createIframe = () => {
     createEl.id = int;
     el.innerHTML = "";
     el.style[" overflow"] = "hidden";
-    el.appendChild(createEl);  
-   	createEl.contentDocument.write(elGen)
+    el.parentNode.replaceChild(createEl, el); 
+   	createEl.contentDocument.write(elGen);
     createEl.contentDocument.body.appendChild(createScriptInit);
     };
 
